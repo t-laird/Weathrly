@@ -1,0 +1,31 @@
+.Welcome {
+  position: absolute;
+  width: 30%;
+  height: 20%;
+  left: 35%;
+  top: 40%;
+  background-color: blue;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+
+
+  button.exit {
+    background-color: red;
+    position: absolute;
+    top: 0;
+    right: 0px;
+    height: 15px;
+    width:15px;
+    border: none;
+    text-align: center;
+    vertical-align: middle;
+    padding: 0;
+  }
+
+  button.showWeather {
+
+  }
+
+}
