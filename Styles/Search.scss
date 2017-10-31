@@ -1,0 +1,16 @@
+.Search {
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+  font-size: 30px;
+  box-sizing: border-box;
+  input {
+    height: 40px;
+    width: 100%;
+    font-size: 30px;
+  }
+  button {
+    width: 240px;
+    font-size: 30px;
+  }
+}
