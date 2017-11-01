@@ -1,31 +1,78 @@
+$main-color: #4D7EA8;
+
 .Welcome {
   position: absolute;
-  width: 30%;
-  height: 20%;
-  left: 35%;
-  top: 40%;
-  background-color: blue;
+  width: 60%;
+  height: 40%;
+  left: 20%;
+  top: 30%;
+  background-color: transparentize($main-color, .05);
+  border-radius: 10px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
+  box-shadow: 0px 15px 20px 0px darken($main-color, 30%);
 
 
   button.exit {
     background-color: red;
     position: absolute;
     top: 0;
+    cursor: pointer;
+    font-size: 20px;
     right: 0px;
-    height: 15px;
-    width:15px;
+    height: 25px;
+    width:25px;
     border: none;
+    border-top-right-radius: 5px;
     text-align: center;
     vertical-align: middle;
     padding: 0;
+    box-shadow: 0px 0px 3px 3px white;
+    &:hover {
+      background-color: darken(red, 20%);
+      box-shadow: inset 0px 0px 1px 1px black;
+    }
+  }
+
+  input {
+    width: 75%;
+    height: 40px;
+    font-size: 30px;
+    box-sizing: border-box;
+    border-radius: 5px 0px 0px 5px;
+    box-shadow: 0px 0px 10px white;
+    padding: 5px;
+    outline: none;
+    &:focus {
+      box-shadow: 0px 0px 10px black;
+
+    }
   }
 
   button.showWeather {
-
+    box-sizing: border-box;
+    outline: none;
+    font-size: 14px;
+    border-radius: 0px 5px 5px 0px;
+    width: 20%;
+    height: 40px;
+    background-color: darken($main-color, 15%);
+    border: none;
+    color: whitesmoke;
+    box-shadow: 0px 0px 10px white;  
+    &:hover{
+      box-shadow: 0px 0px 10px black;
+    }
+    &:focus {
+      box-shadow: inset 0px 0px 10px black;
+    }
+  }
+  
+  h3 {
+    font-size: 60px;
+    text-align: center;
   }
 
 }
