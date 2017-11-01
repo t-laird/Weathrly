@@ -22,7 +22,7 @@ class Welcome extends Component {
         <button className="exit" onClick={this.hideWelcome}>X</button>
         <input type="text" placeholder="Enter Your Location" />
         <button className="showWeather">Show Me The Weather</button>
-        Welcome Component
+        <h3>Welcome to Weathrly!</h3>
       </div>
     )
   }

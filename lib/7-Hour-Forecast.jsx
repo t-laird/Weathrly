@@ -2,9 +2,11 @@ import '../Styles/7-Hour-Forecast.scss';
 import React, { Component } from 'react';
 import Card from './Card';
 
+
 class SevenHourForecast extends Component {
   constructor() {
     super();
+
     this.state = {};
   }
 
@@ -26,4 +28,6 @@ class SevenHourForecast extends Component {
   }
 }
 
+
 export default SevenHourForecast;
+
