@@ -56,7 +56,7 @@ class App extends Component {
     this.state = {};    
   }
 
-  componentWillMount() {
+  componentDidMount() {
     fetch(`http://api.wunderground.com/api/${key}/conditions/forecast10day/hourly/q/CO/Denver.json`)
       .then(res => res.json())
       .then(data => {
