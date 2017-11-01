@@ -32,7 +32,7 @@ class CurrentWeather extends Component {
       return (
         <div className="CurrentWeather">
           <h1> {location} </h1>
-          <h1> Today's Weather: {temp}</h1>
+          <h1> Weather Today: {temp}</h1>
           <p>
             {currWeather} <br />
             {feelsLike} <br />
