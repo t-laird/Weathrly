@@ -8,8 +8,6 @@ import Welcome from './Welcome';
 import apiData from '../staticAPIdata';
 import key from '../apiKey';
 
-
-
 let tenDayObject = apiData.forecast.simpleforecast.forecastday.map(day => {
   return {
     date: day.date.pretty,
@@ -53,6 +51,7 @@ let sevenHourForecast = apiData.hourly_forecast.map((hour) => {
 class App extends Component {
   constructor() {
     super();
+
     this.state = {};    
   }
 

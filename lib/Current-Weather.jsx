@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Card from './Card';
 
 
+
 class CurrentWeather extends Component {
   constructor() {
     super();
@@ -26,6 +27,7 @@ class CurrentWeather extends Component {
 
 
   render() {
+
     const { location, observationLoc, temp, tempNum, currWeather, feelsLike, high, low, windDegs, windDir, windSpeed, observationTime, sentence} = this.props.currentWeather;
     console.log(this.props.currentWeather);
       return (
