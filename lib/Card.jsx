@@ -13,7 +13,8 @@ export default class Card extends React.Component {
 
         {
           this.props.sevenHour &&
-          <span className="seven-hour-top-row"><h1 className="seven-hour-hour">
+          <span className="seven-hour-top-row">
+            <h1 className="seven-hour-hour">
             {this.props.hourWeather.hour}</h1>
             <h1 className="seven-hour-day">
             {this.props.hourWeather.day}</h1>
@@ -21,10 +22,11 @@ export default class Card extends React.Component {
         }
         {
           !this.props.sevenHour &&
-          <span className="ten-day-top-row"><h1 className="ten-day-week-day">
-            {this.props.dayWeather.day}</h1>
+          <span className="ten-day-top-row">
+            <h1 className="ten-day-week-day">
+            {this.props.dayWeather.weekday}</h1>
             <h1 className="ten-day-month-day">
-            {this.props.dayWeather.day}</h1>
+            {this.props.dayWeather.monthname_short}, {this.props.dayWeather.day}</h1>
           </span>
         }
           <p>
