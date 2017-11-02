@@ -20,9 +20,9 @@ class Search extends Component {
 
   setLocation() {
     if (this.state.value.length > 7){
-      console.log('me go new place');
       this.props.updateFunction(this.state.value);
     }
+    this.setState({value: ''});
   }
 
   render() {
