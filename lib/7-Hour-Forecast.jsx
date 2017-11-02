@@ -12,8 +12,6 @@ class SevenHourForecast extends Component {
 
   render() {
 
-    console.log(this.props.sevenHour);
-
     return (
       <div className="SevenHour">
       {this.props.sevenHour.map(hour => {
