@@ -5,26 +5,38 @@ class Welcome extends Component {
   constructor() {
     super();
     this.hideWelcome = this.hideWelcome.bind(this);
-    this.state = {display: 'default'}
+    this.state = {display: 'default', value: ''};
+    this.updateVal = this.updateVal.bind(this);
+    this.setLocation = this.setLocation.bind(this);
   }
 
   hideWelcome() {
-    console.log('hello');
     this.setState({display: 'none'})
-    console.log(this.state);
+  }
+
+  updateVal(e) {
+    this.setState({value: e.target.value})
+  }
+
+  setLocation() {
+    if (this.state.value.length > 7){
+      this.props.updateFunction(this.state.value);
+    }
+    this.setState({value: ''});
   }
 
 
 
   render() {
-    return (
-      <div className="Welcome" style={{'display': this.state.display}}>
-        <button className="exit" onClick={this.hideWelcome}>X</button>
-        <input type="text" placeholder="Enter Your Location" />
-        <button className="showWeather">Show Me The Weather</button>
-        <h3>Welcome to Weathrly!</h3>
-      </div>
-    )
+    console.log(this.props.newUser);
+      return (
+        <div className="Welcome" style={{'display': this.state.display}}>
+          <button className="exit" onClick={this.hideWelcome}>X</button>
+          <input type="text" placeholder="Enter Your Location" onChange={this.updateVal}/>
+          <button onClick={this.setLocation} className="showWeather">Show Me The Weather</button>
+          <h3>Welcome to Weathrly!</h3>
+        </div>
+      )
   }
 }
 

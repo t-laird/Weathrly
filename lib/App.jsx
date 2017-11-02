@@ -59,22 +59,24 @@ class App extends Component {
   }
 
   setLocation() {
-    let currentLocation = JSON.parse(localStorage.getItem('asdf'));
-    let cityState = currentLocation.split(', ');
-    console.log('updating location');
-    
-    fetch(`http://api.wunderground.com/api/${key}/conditions/forecast10day/hourly/q/${cityState[1]}/${cityState[0]}.json`)
-      .then(res => res.json())
-      .then(data => {
-        let apiData = data;
-
-        const {CurrentObject, sevenHourForecast, tenDayObject} = cleanData(apiData);
-
-        this.setState({ location: currentLocation, CurrentObject: CurrentObject, tenDayObject: tenDayObject, sevenHourForecast: sevenHourForecast });
-      });
+    if (JSON.parse(localStorage.getItem('asdf'))){
+      let currentLocation = JSON.parse(localStorage.getItem('asdf'));
+      let cityState = currentLocation.split(', ');
+      console.log('updating location');
+      
+      fetch(`http://api.wunderground.com/api/${key}/conditions/forecast10day/hourly/q/${cityState[1]}/${cityState[0]}.json`)
+        .then(res => res.json())
+        .then(data => {
+          let apiData = data;
+  
+          const {CurrentObject, sevenHourForecast, tenDayObject} = cleanData(apiData);
+  
+          this.setState({ location: currentLocation, CurrentObject: CurrentObject, tenDayObject: tenDayObject, sevenHourForecast: sevenHourForecast });
+        });      
+    }
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.setLocation();
   }
 
@@ -89,11 +91,9 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state);
     if (this.state.CurrentObject !== undefined) {
       return (
         <div className="App">
-          <Welcome />
           <Search updateFunction={this.updateLocation} />
           <CurrentWeather currentWeather={this.state.CurrentObject} />
           <SevenHourForecast sevenHour={this.state.sevenHourForecast} />
@@ -103,6 +103,10 @@ class App extends Component {
           <TenDayForecast tenDay={tenDayObject} /> */}
         </div>
       )    
+    } else if (!JSON.parse(localStorage.getItem('asdf'))) {
+      return (
+        <Welcome updateFunction={this.updateLocation} />
+      );
     }
     return null;
   }
