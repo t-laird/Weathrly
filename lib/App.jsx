@@ -55,18 +55,38 @@ class App extends Component {
   constructor() {
     super();
     this.state = {};    
+    this.updateLocation = this.updateLocation.bind(this);
+    this.setLocation = this.setLocation.bind(this);
   }
 
-  componentDidMount() {
-    fetch(`http://api.wunderground.com/api/${key}/conditions/forecast10day/hourly/q/CO/Denver.json`)
+  setLocation() {
+    let currentLocation = JSON.parse(localStorage.getItem('asdf'));
+    let cityState = currentLocation.split(', ');
+    console.log('updating location');
+    
+    fetch(`http://api.wunderground.com/api/${key}/conditions/forecast10day/hourly/q/${cityState[1]}/${cityState[0]}.json`)
       .then(res => res.json())
       .then(data => {
         let apiData = data;
 
         const {CurrentObject, sevenHourForecast, tenDayObject} = cleanData(apiData);
 
-        this.setState({ CurrentObject: CurrentObject, tenDayObject: tenDayObject, sevenHourForecast: sevenHourForecast });
+        this.setState({ location: currentLocation, CurrentObject: CurrentObject, tenDayObject: tenDayObject, sevenHourForecast: sevenHourForecast });
       });
+  }
+
+  componentWillMount() {
+    this.setLocation();
+  }
+
+  updateLocation(location) {
+    const newLocation = location;
+
+    this.setState({
+      location: newLocation
+    });
+    localStorage.setItem('asdf', JSON.stringify(newLocation));
+    this.setLocation();
   }
 
   render() {
@@ -75,7 +95,7 @@ class App extends Component {
       return (
         <div className="App">
           <Welcome />
-          <Search />
+          <Search updateFunction={this.updateLocation} />
           <CurrentWeather currentWeather={this.state.CurrentObject} />
           <SevenHourForecast sevenHour={this.state.sevenHourForecast} />
           <TenDayForecast tenDay={this.state.tenDayObject} />
