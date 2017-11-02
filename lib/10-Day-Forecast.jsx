@@ -7,7 +7,6 @@ class TenDayForecast extends Component {
   }
 
   render() {
-    console.log(this.props.tenDay); 
     return (
 
       <div className="TenDay">
