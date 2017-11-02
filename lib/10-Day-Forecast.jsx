@@ -7,13 +7,40 @@ class TenDayForecast extends Component {
   }
 
   render() {
+
     return (
 
       <div className="TenDay">
-        10 day Component
+        {this.props.tenDay.map((day, index) => {
+          return (
+            <Card dayWeather={day} key={index} />
+          )
+        })
+      }
       </div>
     )
   }
 }
 
 export default TenDayForecast;
+
+  // render () {
+  //   return (
+  //     <div className="card" onClick={ this.toggleQA } >
+  //     <div className="index"> {this.props.index} </div>
+  //       { 
+  //         this.state.showQuestion && 
+  //         <div className="question"> 
+  //           Question: {this.props.question} 
+  //         </div>
+  //       }
+
+  //       {
+  //         !this.state.showQuestion && 
+  //         <div className="answer">
+  //           Answer: {this.props.answer}
+  //         </div>
+  //       }
+  //     </div>
+  //   )
+  // }
