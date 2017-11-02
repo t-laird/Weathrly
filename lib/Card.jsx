@@ -7,7 +7,6 @@ export default class Card extends React.Component {
 
   }
   render () {
-    console.log(this.props.hourWeather);
     return (
       <div className="Card">
         <span className="seven-hour-top-row"><h1 className="seven-hour-hour">
