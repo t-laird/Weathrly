@@ -4,10 +4,14 @@
   padding: 10px;
   background-color: white;
   border-radius: 10px;
-  box-shadow: 0px 10px 20px 0px black;
+  box-shadow: 0px 20px 30px 0px black;
   box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
+  transition: 500ms;
+  &:hover {
+    box-shadow: 0px 10px 15px 0px black;      
+  }
 
   .weatherInfo {
     width: 25%;
