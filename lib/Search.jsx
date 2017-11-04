@@ -76,7 +76,7 @@ class Search extends Component {
     return (
       <div className="Search">
         <div className="inputs">
-          <input type="text" value={this.state.value} onChange={this.updateVal} placeholder="City, STATE" onKeyDown={this.selectLI}/>
+          <input type="text" value={this.state.value} onChange={this.updateVal} placeholder="enter your location" onKeyDown={this.selectLI}/>
           <button onSelect={this.setLocation} onClick={this.setLocation}>Get Weather</button>          
         </div>
         <ul>
