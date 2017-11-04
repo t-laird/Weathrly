@@ -1,5 +1,6 @@
 import '../Styles/10-Day-Forecast.scss';
 import React, { Component } from 'react';
+import Card from './Card';
 
 class TenDayForecast extends Component {
   constructor() {
@@ -7,10 +8,18 @@ class TenDayForecast extends Component {
   }
 
   render() {
+
+    console.log(this.props.weather)
+
     return (
 
       <div className="TenDay">
-        10 day Component
+        {this.props.tenDay.map((day, index) => {
+          return (
+            <Card weather={day} key={index} />
+          )
+        })
+      }
       </div>
     )
   }
