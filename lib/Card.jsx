@@ -10,7 +10,7 @@ export default class Card extends React.Component {
 
   render () {
   
-    console.log(this.props.weather.condition)
+    console.log(this.props.weather)
 
     return (
       <div className="Card">
@@ -23,6 +23,7 @@ export default class Card extends React.Component {
         <div>Humidity {this.props.weather.humidity}% </div>
         <div>Wind Direction {this.props.weather.windDirection} </div>
       {/*
+        <div>Wind Speed {this.props.weather.windSpeed} </div>
       */}
       </div>
     )
