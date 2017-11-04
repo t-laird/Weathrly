@@ -1,3 +1,11 @@
+hr {
+  border-top: 4px solid #8c8b8b;
+  width: 80%;
+  border-radius: 10px;
+  margin: 5px 0 0 11px;
+  border-color: white;
+}
+
 .TenDay {
   height: 350px;
   margin: 0px 40px 40px 40px; 
@@ -8,9 +16,88 @@
   box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
+  overflow: hidden;
   transition: 500ms;
-  font-size: 10px;
   &:hover {
     box-shadow: 0px 10px 15px 0px black;      
   }
+}
+
+.ten-day-day {
+  font-size: 18px;
+  text-align: center;
+  color: #4d7ea8;
+  font-weight: bold;
+}
+
+.ten-day-icon {
+  height: 80px;
+  margin-left: 20px;
+}
+
+.ten-day-temp-high {
+  font-size: 35px;
+  color: #4d7ea8;
+  font-weight: bold;
+}
+
+.ten-day-temp-low {
+  font-size: 35px;
+  color: #4d7ea8;
+  font-weight: lighter;
+  opacity: 0.7;
+}
+
+.ten-day-humid-high {
+  font-size: 14px;
+  margin: 5px 0 0 0px;
+  color: #4d7ea8;
+  font-weight: bold;
+}
+
+.ten-day-humid-low {
+  font-size: 14px;
+  margin: 5px 0 0 5px;
+  color: #94b2cb;
+  font-weight: lighter;
+  opacity: 0.9;
+}
+
+.ten-day-wind-speed {
+  font-size: 14px;
+  margin: 5px 5px 0 0px;
+  color: #4d7ea8;
+  font-weight: bold;
+}
+
+.ten-day-wind-direction {
+  font-size: 14px;
+  margin: 5px 0px 0 0px;
+  color: #94b2cb;
+  font-weight: lighter;
+}
+
+.ten-day-condition {
+  font-size: 14px;
+  text-align: center;
+  font-weight: bold;
+  color: #4d7ea8;
+}
+
+.ten-day-temp-wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.ten-day-humid-wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.ten-day-wind-wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
