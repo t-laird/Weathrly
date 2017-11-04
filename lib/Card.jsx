@@ -14,12 +14,11 @@ export default class Card extends React.Component {
 
     return (
       <div className="Card">
-        <h1>{this.props.weather.hour} </h1>
-        <h1>{this.props.weather.day} </h1>
-        <img src={this.props.weather.icon_url} />
-        <div> {this.props.weather.condition} </div>
         {this.props.weather.high &&
           <div> 
+          <h1>{this.props.weather.day} </h1>
+          <img src={this.props.weather.icon_url} />
+          <div> {this.props.weather.condition} </div>
           <div>High of  {this.props.weather.high}˚ </div>
           <div>Low of  {this.props.weather.low}˚ </div>
           <div>Min Humidity {this.props.weather.minHumid}% </div>
@@ -28,6 +27,8 @@ export default class Card extends React.Component {
         }
         {!this.props.weather.high &&
           <div>
+          <h1>{this.props.weather.hour} </h1>
+          <img src={this.props.weather.icon_url} />
           <div>Temp {this.props.weather.temp}˚ </div>         
           <div>Humidity {this.props.weather.humidity}% </div>
           </div>
