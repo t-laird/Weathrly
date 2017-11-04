@@ -7,10 +7,11 @@
   box-shadow: 0px 20px 30px 0px black;
   box-sizing: border-box;
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   transition: 500ms;
   &:hover {
-    box-shadow: 0px 10px 15px 0px black;      
+    box-shadow: 0px 10px 15px 0px black;
   }
 
   .weatherInfo {
@@ -45,13 +46,13 @@
   }
 
   .temperature {
-    width: 35%;
-    height: 60%;
+    width: 30%;
+    height: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     h1 {
-      font-size: 115px;
+      font-size: 125px;
       margin: 0px;
       text-align: center;
     }
@@ -59,17 +60,17 @@
   }
 
   .weatherIcon {
-    width: 40%;
-    height: 60%;
-    background-image: url("../weathrly-weatherimages.jpg");
-    // background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-position: -250px -230px;
-    box-shadow: 0px 10px 15px 0px darkgrey;
+    width: 30%;
+    height: 50%;
+    text-align: center;
+    vertical-align: bottom;
+    i{
+      font-size: 200px;
+    }
   }
 
   .windInfo {
-    width: 50%;
+    width: 25%;
     height: 40%;
     display: flex;
     flex-direction: column;
@@ -78,40 +79,15 @@
       width: 100%;
       height: 100%;
       font-size: 20px;
-      margin-top: 40px;
+      padding-top: 20px;
       word-wrap: break-word;
-    }
-    .compass {
-      height: 100px;
-      width: 100px;
-      border-radius: 50%;
-      border: 5px solid grey;
-      span {
-        position: relative;
-        font-weight: bold;
-      }
-      span:nth-child(1) {
-        left: 45px; top: 0px;
-      }
-      /* South */
-     span:nth-child(3) {
-        left: 45px; top: 0px;
-      }
-      
-      /* East */
-     span:nth-child(2) {
-        right: 25px; top: 90px;
-      }
-      /* West */
-     span:nth-child(4) {
-        left: 25px; top: 90px;
-      }
     }
   }
 
   .extraInfo {
-    width: 50%;
-    height: 40%;
+    width: 45%;
+    height: 100%;
+    padding: 10px;
     font-size: 40px;
     display: flex;
     align-items: center;

@@ -6,7 +6,8 @@
   "scripts": {
     "start": "webpack-dev-server",
     "build": "webpack.js",
-    "test": "jest"
+    "test": "jest",
+    "eslint": "./node_modules/eslint/bin/eslint.js ./lib/*.js"
   },
   "repository": {
     "type": "git",
@@ -63,5 +64,7 @@
     "webpack": "^1.15.0",
     "webpack-dev-server": "^1.14.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "react-fontawesome": "^1.6.1"
+  }
 }
