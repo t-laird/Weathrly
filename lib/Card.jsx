@@ -27,13 +27,17 @@ export default class Card extends React.Component {
         }
         {!this.props.weather.high &&
           <div>
-          <h1>{this.props.weather.hour} </h1>
-          <img src={this.props.weather.icon_url} />
-          <div>Temp {this.props.weather.temp}˚ </div>         
-          <div>Humidity {this.props.weather.humidity}% </div>
+          <h1 className="seven-hour-hour">{this.props.weather.hour} </h1>
+          <img className="seven-hour-icon" src={this.props.weather.icon_url} />
+          <div className="seven-hour-temp"> {this.props.weather.temp}˚ </div>         
+          <hr></hr>
+          <div className="wind-style">
+          <div className="seven-hour-wind-speed"> {this.props.weather.windSpeed}mph </div>
+          <div className="seven-hour-wind-direction"> {this.props.weather.windDirection} </div>          
+          </div>
+          <div className="seven-hour-humidity"> {this.props.weather.humidity}% Humidity </div>
           </div>
         }
-        <div>Wind {this.props.weather.windDirection} </div>
       </div>
     )
   }
