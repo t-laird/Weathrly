@@ -13,13 +13,15 @@ class SevenHourForecast extends Component {
 
     return (
       <div className="SevenHour">
-      {
-        this.props.sevenHour.map((hour, index) => {
-          return (
-            <Card weather={hour} key={index} />
-          );
-        })
-      }
+        <div className="card-container">
+          {
+            this.props.sevenHour.map((hour, index) => {
+              return (
+                <Card weather={hour} key={index} />
+              );
+            })
+          }
+        </div>
       </div>
     )
   }

@@ -8,25 +8,28 @@ hr {
 }
 
 .TenDay {
-  background: #e5e5e5;
-  background: -moz-linear-gradient(top,  #e5eace 0%, #ffffff 100%);
-  background: -webkit-linear-gradient(top,  #e5eace 0%,#ffffff 100%);
-  background: linear-gradient(to bottom,  #e5eace 0%,#ffffff 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5eace', endColorstr='#ffffff',GradientType=0 );
-  height: 490px;
+  // background: #e5e5e5;
+  // background: -moz-linear-gradient(top,  #e5eace 0%, #ffffff 100%);
+  // background: -webkit-linear-gradient(top,  #e5eace 0%,#ffffff 100%);
+  // background: linear-gradient(to bottom,  #e5eace 0%,#ffffff 100%);
+  // filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5eace', endColorstr='#ffffff',GradientType=0 );
+  // border-radius: 10px;
+  // box-shadow: 0px 20px 30px 0px black;
+  // &:hover {
+  //   box-shadow: 0px 10px 15px 0px black;      
+  // }
   margin: 0px 40px 40px 40px; 
   padding: 10px;
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0px 20px 30px 0px black;
   box-sizing: border-box;
-  display: flex;
-  flex-wrap: wrap;
   overflow: hidden;
   transition: 500ms;
   // justify-content: space-between;
-  &:hover {
-    box-shadow: 0px 10px 15px 0px black;      
+
+  .card-container {
+    width: 1015px;
+    margin: 0px auto;
+    display: flex;
+    flex-wrap: wrap;  
   }
 }
 
@@ -108,4 +111,50 @@ hr {
   display: flex;
   flex-direction: row;
   justify-content: center;
+}
+
+@media screen and (max-width: 1135px) {
+  .TenDay {
+    .card-container {
+      width: 870px;
+    }
+  }
+}
+@media screen and (max-width: 990px) {
+  .TenDay {
+    .card-container {
+      width: 725px;
+    }
+  }
+}
+
+@media screen and (max-width: 845px) {
+  .TenDay {
+    .card-container {
+      width: 580px;
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .TenDay {
+    .card-container {
+      width: 435px;
+    }
+  }
+}
+@media screen and (max-width: 555px) {
+  .TenDay {
+    .card-container {
+      width: 290px;
+    }
+  }
+}
+
+@media screen and (max-width: 410px) {
+  .TenDay {
+    .card-container {
+      width: 145px;
+    }
+  }
 }
