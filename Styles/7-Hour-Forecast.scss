@@ -2,6 +2,15 @@ h1 {
   font-size: 8px;
 }
 
+hr {
+  border: 2x solid #8c8b8b;
+  width: 80%;
+  border-radius: 10px;
+  margin-left: 11px;
+  border-color: white;
+  border-radius: 100px;
+}
+
 .SevenHour {
   background: #e5e5e5;
   background: -moz-linear-gradient(top,  #e5eace 0%, #ffffff 100%);
@@ -10,17 +19,62 @@ h1 {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5eace', endColorstr='#ffffff',GradientType=0 );
   display: flex;
   flex-wrap: wrap;
-  height: 300px;
+  height: 221px;
   margin: 0px 40px 40px 40px;
   padding: 10px;
   border-radius: 10px;
   background-color: white;
-  justify-content: space-between;
+  // justify-content: space-between;
   box-shadow: 0px 20px 30px 0px black;  
-  font-size: 10px;
   transition: 500ms;
+  overflow: hidden;
   &:hover {
     box-shadow: 0px 10px 15px 0px black;      
   }
 }
 
+.seven-hour-hour {
+  font-size: 18px;
+  margin: 10px 0 0 27px;
+  color: #4d7ea8;
+  font-weight: bold;
+}
+
+.seven-hour-icon {
+  height: 80px;
+  margin-left: 20px;
+}
+
+.seven-hour-temp {
+  font-size: 40px;
+  margin: 0 0 0 35px;
+  color: #4d7ea8;
+  font-weight: bold;
+}
+
+.seven-hour-humidity {
+  font-size: 16px;
+  margin: 5px 0 0 13px;
+  color: #94b2cb;
+  font-weight: bold;
+}
+
+.seven-hour-wind-speed {
+  font-size: 18px;
+  margin: 5px 5px 0 15px;
+  color: #94b2cb;
+  font-weight: bold;
+}
+
+.seven-hour-wind-direction {
+  font-size: 18px;
+  margin: 5px 5px 0 5px;
+  color: #94b2cb;
+  font-weight: bold;
+}
+
+.wind-style {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
