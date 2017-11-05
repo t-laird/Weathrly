@@ -14,7 +14,9 @@ export default class Card extends React.Component {
         {this.props.weather.high &&
           <div> 
           <h1 className="ten-day-day">{this.props.weather.day} </h1>
-          <img className="ten-day-icon" src={this.props.weather.icon_url} />
+          <div className="icon-container">
+            <i className={`wi wi-wu-${(this.props.weather.icon).replace(/\s/g, '')}`}></i>
+          </div>      
           <div className="ten-day-condition"> {this.props.weather.condition} </div>
           <hr></hr>
           <div className="ten-day-temp-wrap">
@@ -34,7 +36,9 @@ export default class Card extends React.Component {
         {!this.props.weather.high &&
           <div>
           <h1 className="seven-hour-hour">{this.props.weather.hour} </h1>
-          <img className="seven-hour-icon" src={this.props.weather.icon_url} />
+          <div className="icon-container">
+            <i className={`wi wi-wu-${(this.props.weather.icon).replace(/\s/g, '')}`}></i>
+          </div>
           <div className="seven-hour-temp"> {this.props.weather.temp}˚ </div>         
           <hr></hr>
           <div className="wind-style">

@@ -45,12 +45,12 @@ describe('10 Day' , () => {
 
   it.skip ('The first card component should have a low of 43 degrees', () => {
     const wrapper = mount(<TenDayForecast tenDay= {testData.tenDayObject} />);
-    expect(wrapper.find('.Card').slice(0,1).find('div').slice(4,5).text()).toEqual('Low of  43˚ ');
+    expect(wrapper.find('.Card').slice(0,1).find('div').slice(4,5).text()).toEqual(' 54˚  43˚ ');
   });
 
   it.skip ('The last card component should have a low of 41 degrees', () => {
     const wrapper = mount(<TenDayForecast tenDay= {testData.tenDayObject} />);
-    expect(wrapper.find('.Card').slice(5,6).find('div').slice(4,5).text()).toEqual('Low of  41˚ ');
+    expect(wrapper.find('.Card').slice(5,6).find('div').slice(4,5).text()).toEqual(' 68˚  41˚ ');
   });
   
 })
