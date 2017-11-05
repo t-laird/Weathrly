@@ -9,7 +9,6 @@ export default class Card extends React.Component {
   }
 
   render () {
-  
     return (
       <div className="Card">
         {this.props.weather.high &&

@@ -1,5 +1,6 @@
 import '../Styles/Welcome.scss';
 import React, { Component } from 'react';
+import Search from './Search';
 
 class Welcome extends Component {
   constructor() {
@@ -28,13 +29,14 @@ class Welcome extends Component {
 
 
   render() {
-    // console.log(this.props.newUser);
       return (
         <div className="Welcome" style={{'display': this.state.display}}>
-          <button className="exit" onClick={this.hideWelcome}>X</button>
+          {/* <button className="exit" onClick={this.hideWelcome}>X</button>
           <input type="text" placeholder="Enter Your Location" onChange={this.updateVal}/>
-          <button onClick={this.setLocation} className="showWeather">Show Me The Weather</button>
-          <h3>Welcome to Weathrly!</h3>
+          <button onClick={this.setLocation} className="showWeather">Show Me The Weather</button> */}
+          <Search updateFunction={this.props.updateFunction}/>
+          <h3>Welcome to Weathrly! <i className="wi wi-day-sunny
+"></i></h3>
         </div>
       )
   }

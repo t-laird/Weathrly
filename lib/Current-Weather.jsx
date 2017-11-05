@@ -15,28 +15,28 @@ class CurrentWeather extends Component {
     console.log(icon);
       return (
         <div className="CurrentWeather">
-          <div className="weatherInfo">
+          <div className="leftHalf">
             <h1>{location}</h1>
-            <h2>{observationTime}</h2>
-            <h3>Today's High: <span>{high}˚</span></h3> 
-            <h3>Today's Low: <span>{low}˚</span></h3> 
+            <h4>{observationTime}</h4>
+            <div>
+              <i className={icon}></i>
+              <h1>{tempNum}˚</h1>
+            </div>
+            <p className = "wind">
+              Wind {windDir} - {windSpeed} mph 
+              <i className={"wi wi-wind towards-"+windDegs+"-deg"}></i>
+            </p>
           </div>
-          <div className="windInfo">
+          <div className="divider">
+
+          </div>
+          <div className="rightHalf">
+            <h3>TODAY:</h3>
+              <span className="high">{high}˚</span> <span className="low">{low}˚</span>
             <p>
-              Wind Direction: {windDir} <br />
-              Wind Speed: {windSpeed} <br />
-              Wind Angle:  {windDegs}              
-              </p>
-            </div>  
-          <div className="temperature">
-            <h1>{tempNum}˚</h1>
-          </div>
-          <div className="weatherIcon">
-           <i className={icon}></i>
-          </div>
-          <div className="extraInfo">
-            {sentence}
-          </div>
+              {sentence}
+            </p>
+          </div>  
         </div>
       )
   }
