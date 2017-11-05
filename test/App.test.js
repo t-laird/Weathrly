@@ -3,6 +3,9 @@ import { shallow, mount } from 'enzyme';
 import App from '../lib/App';
 import cleanData from '../lib/cleanData';
 import apiData from '../staticAPIdata';
+global.fetch = require('jest-fetch-mock');
+
+let {tenDayObject, CurrentObject, sevenHourForecast} = cleanData(apiData);
 
 global.localStorage = {
   getItem(keyword) {
@@ -17,14 +20,26 @@ global.localStorage = {
 };
 
 global.fetch = function () {
-  function then () {
 
-  }
-  return apiData;
 };
-global.then = function () {};
+
 
 describe('App', () => {
+  beforeEach( () => {
+    global.fetch = jest.fn().mockImplementation(() => {
+      var p = new Promise((resolve, reject) => {
+        resolve({
+          ok: true, 
+          Id: '123', 
+          json: function() { 
+            return {data: apiData};
+          }
+        });
+      });
+      
+      return p;
+    });
+  });
   it('should exist', () => {
     const wrapper = shallow(<App />)
     expect(wrapper).toBeDefined()
@@ -35,9 +50,37 @@ describe('App', () => {
     expect(wrapper.state('location')).toEqual(undefined);
   });
 
-  it('Should set the state to the key as stored in localStorage', () => {
+  it('Should set the state to the location as stored in localStorage', async () => {
     global.localStorage.setItem('asdf', 'Denver, CO');
-    const wrapper = shallow(<App />);
-    console.log(wrapper.state());
+    const wrapper = mount(<App />);
+    wrapper.setState({location: JSON.parse(global.localStorage.getItem('asdf'))});
+    expect(wrapper.state().location).toEqual('Denver, CO');
+  });
+
+  it('Should render the Search, CurrentWeather, SevenHourForecast and TenDayForecast components once it has been passed the data from the fetch request', () => {
+    global.localStorage.setItem('asdf', 'Denver, CO');
+    const wrapper = mount(<App />);
+    wrapper.setState({location: JSON.parse(global.localStorage.getItem('asdf')), CurrentObject: CurrentObject, tenDayObject: tenDayObject, sevenHourForecast: sevenHourForecast});
+
+    expect(wrapper.find('Search').length).toEqual(1);
+    expect(wrapper.find('CurrentWeather').length).toEqual(1);
+    expect(wrapper.find('SevenHourForecast').length).toEqual(1);
+    expect(wrapper.find('TenDayForecast').length).toEqual(1);
+  });
+
+  it('Should render only the Welcome component when it does not have any data in its state and localStorage does not have a value either.', () => {
+    global.localStorage.asdf = null;
+    const wrapper = mount(<App />);
+    expect(wrapper.find('CurrentWeather').length).toEqual(0);
+    expect(wrapper.find('Welcome').length).toEqual(1);
+  });
+
+  it('Should not render anything if the state has not yet been passed data and localstorage is not empty', () => {
+    global.localStorage.asdf = 'Denver, CO';
+    const wrapper = mount(<App />);
+
+    expect(wrapper.find('CurrentWeather').length).toEqual(0);
+    expect(wrapper.find('Welcome').length).toEqual(0);
+    expect(wrapper.find('App').length).toEqual(1);
   });
 });
