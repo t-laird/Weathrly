@@ -29,7 +29,6 @@ class Welcome extends Component {
 
 
   render() {
-    console.log(this.props.newUser);
       return (
         <div className="Welcome" style={{'display': this.state.display}}>
           {/* <button className="exit" onClick={this.hideWelcome}>X</button>
