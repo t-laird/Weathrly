@@ -8,20 +8,17 @@ class TenDayForecast extends Component {
   }
 
   render() {
-
-    console.log(this.props.weather)
-
     return (
-
       <div className="TenDay">
-        {this.props.tenDay.map((day, index) => {
-          return (
-            <Card weather={day} key={index} />
-          )
-        })
-      }
+        {
+          this.props.tenDay.map((day, index) => {
+            return (
+              <Card weather={day} key={index} />
+            )
+          })
+        }
       </div>
-    )
+    );
   }
 }
 

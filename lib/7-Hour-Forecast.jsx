@@ -2,7 +2,6 @@ import '../Styles/7-Hour-Forecast.scss';
 import React, { Component } from 'react';
 import Card from './Card';
 
-
 class SevenHourForecast extends Component {
   constructor() {
     super();
@@ -13,12 +12,12 @@ class SevenHourForecast extends Component {
   render() {
 
     return (
-
       <div className="SevenHour">
-        {this.props.sevenHour.map((hour, index) => {
+      {
+        this.props.sevenHour.map((hour, index) => {
           return (
-          <Card weather={hour} key={index} />
-          )
+            <Card weather={hour} key={index} />
+          );
         })
       }
       </div>
