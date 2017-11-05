@@ -31,7 +31,6 @@ describe('7 Hour' , () => {
   it ('Should receive "SE" as the prop for windDirection', () => {
     const wrapper = mount(<SevenHourForecast sevenHour={testData.sevenHourForecast} />);
     expect(wrapper.props().sevenHour[0].windDirection).toEqual('SE');
-    console.log(wrapper.props().sevenHour[0])
   });
 
   it ('The first card component should have a time of 4pm', () => {
@@ -46,11 +45,11 @@ describe('7 Hour' , () => {
 
   it ('The first card component should have a wind direction of SE', () => {
     const wrapper = mount(<SevenHourForecast sevenHour={testData.sevenHourForecast} />);
-    expect(wrapper.find('.Card').slice(0,1).find('div').slice(4,5).text()).toEqual('Wind SE ');
+    expect(wrapper.find('.Card').slice(0,1).find('div').slice(4,5).text()).toEqual(' 7mph  SE ');
   });
 
   it ('The last card component should have a wind direction of S', () => {
     const wrapper = mount(<SevenHourForecast sevenHour={testData.sevenHourForecast} />);
-    expect(wrapper.find('.Card').slice(5,6).find('div').slice(4,5).text()).toEqual('Wind S ');
+    expect(wrapper.find('.Card').slice(5,6).find('div').slice(4,5).text()).toEqual(' 9mph  S ');
   });
 })
