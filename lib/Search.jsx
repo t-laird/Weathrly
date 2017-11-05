@@ -37,7 +37,6 @@ class Search extends Component {
         return (city.toLowerCase()).includes(this.state.value.toLowerCase());
       });
     }
-    console.log(foundCity);
     if (foundCity) {
       this.props.updateFunction(foundCity);
     }
