@@ -1,8 +1,13 @@
 $main-color: #4D7EA8;
+@import url('https://fonts.googleapis.com/css?family=Saira+Semi+Condensed');
+@import url('https://fonts.googleapis.com/css?family=Rubik');
+@import url('https://fonts.googleapis.com/css?family=Cinzel');
+
+
 
 .Welcome {
   position: absolute;
-  width: 60%;
+  width: 75%;
   height: 40%;
   left: 20%;
   top: 30%;
@@ -44,7 +49,12 @@ $main-color: #4D7EA8;
   
   h3 {
     font-size: 100px;
+    margin: 0px;
     color: white;
+    // font-family: 'Saira Semi Condensed', sans-serif;    
+    // font-family: 'Rubik', sans-serif;    
+    // font-family: Papyrus;
+    font-family: 'Cinzel', serif;    
     text-align: center;
   }
 

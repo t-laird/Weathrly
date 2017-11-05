@@ -1,10 +1,21 @@
 .Card {
-    border: 2px solid none;
     width: 125px;
     height: 230px;
     margin: 0 10px 10px 10px;
     background-color: #dde6ee;
     border-radius: 10px;
+
+    div.icon-container {
+      width: 100%;
+      text-align: center;
+      margin: 15px 0px;
+    }
+    i {
+      font-size: 50px;
+      text-align: center;
+      color: #3a5f7e;
+      
+    }
   }
 
   
