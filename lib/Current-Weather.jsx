@@ -9,7 +9,6 @@ class CurrentWeather extends Component {
   }
 
   render() {
-    console.log(this.props.currentWeather)
     let { location, observationLoc, temp, tempNum, currWeather, feelsLike, high, low, windDegs, windDir, windSpeed, observationTime, sentence, icon} = this.props.currentWeather;
     icon = `wi wi-wu-${icon.replace(/\s/g, '')}`;
     console.log(icon);

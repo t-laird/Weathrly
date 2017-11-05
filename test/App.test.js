@@ -38,6 +38,5 @@ describe('App', () => {
   it('Should set the state to the key as stored in localStorage', () => {
     global.localStorage.setItem('asdf', 'Denver, CO');
     const wrapper = shallow(<App />);
-    console.log(wrapper.state());
   });
 });
