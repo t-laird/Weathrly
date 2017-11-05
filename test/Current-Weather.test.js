@@ -1,42 +1,53 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import CurrentWeather from '../lib/Current-Weather';
+import cleanData from '../lib/cleanData';
 import App from '../lib/App';
 import apiData from '../staticAPIdata';
 
+let testData = cleanData(apiData);
+
 describe('Current Weather', () => {
-  
-    let component;
-    
-      beforeEach(() => {
-        component = shallow(<CurrentWeather
-            location = "Denver, CO"
-            observation = "Capitol Hill, Denver"
-            temp = "69.3˚"
-            tempNum = "69.6˚"
-            currWeather = "Partly Cloudy"
-            feelsLike = "69.6 F (20.9 C)"
-            high = "70"
-            low = "39"
-            windDegs = "223"
-            windDir = "SW"
-            windSpeed = "1.8"
-            observationTime = "Last Updated on November 4, 2:43 PM MDT"
-            sentence = "Partly cloudy and windy. High 71F. Winds SW at 20 to 30 mph. Winds could occasionally gust over 40 mph."
-            icon = "partlycloudy"
-        />)
+
+      it('should exist', () => {
+        const wrapper = shallow(<CurrentWeather currentWeather={testData.CurrentObject} />);
+        expect(wrapper).toBeDefined();
       });
 
-    it('should render the current temp', () => {
-        const current = component.find('.temperature');
-        expect(current.text()).toEqual('69.6°');
-    
+      it('Should receive expected number of props', () => {
+        const wrapper = mount(<CurrentWeather currentWeather={testData.CurrentObject} />);
+        expect(Object.keys(wrapper.props().currentWeather).length).toEqual(14);
+      });
+
+      it('Should render the prop feelsLike', () => {
+        const wrapper = mount(<CurrentWeather currentWeather={testData.CurrentObject} />);
+        expect(wrapper.props().currentWeather.feelsLike).toEqual('50 F (10 C)');
       });
 
       it('should render the location', () => {
-        const location = component.find('.weatherInfo');
-        expect(location.text()).toEqual('Denver, CO');
+        const wrapper = mount(<CurrentWeather currentWeather={testData.CurrentObject} />);
+        expect(wrapper.props().currentWeather.location).toEqual('Denver, CO');
       });
 
+      it('should render the observation day', () => {
+        const wrapper = mount(<CurrentWeather currentWeather={testData.CurrentObject} />);
+        expect(wrapper.props().currentWeather.observationTime).toEqual('Last Updated on October 31, 3:00 PM MDT');
+      });
+    
+      it('should render the current high/low for the day', () => {
+        const wrapper = mount(<CurrentWeather currentWeather={testData.CurrentObject} />);
+        expect(wrapper.props().currentWeather.high).toEqual('54');
+        expect(wrapper.props().currentWeather.low).toEqual('43');
+      });
+    
+      it('should render the current sentence', () => {
+        const wrapper = mount(<CurrentWeather currentWeather={testData.CurrentObject} />);
+        expect(wrapper.props().currentWeather.sentence).toEqual('Partly cloudy. High 54F. Winds light and variable.');
+      });
+    
+      it('should render the currWeather', () => {
+        const wrapper = mount(<CurrentWeather currentWeather={testData.CurrentObject} />);
+        expect(wrapper.props().currentWeather.currWeather).toEqual('Partly Cloudy');
+      });
 
 });
