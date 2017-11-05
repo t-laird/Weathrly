@@ -8,7 +8,7 @@ let testData = cleanData(apiData);
 
 
 describe('7 Hour' , () => {
-  it('should exist', () => {
+  it ('should exist', () => {
     const wrapper = shallow(<SevenHourForecast sevenHour={testData.sevenHourForecast} />)
     expect(wrapper).toBeDefined()
   });

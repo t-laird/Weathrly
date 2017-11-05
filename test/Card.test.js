@@ -14,7 +14,8 @@ describe('Card', ()=> {
     expect(wrapper).toBeDefined();
   });
 
-  it('Should receive the correct number of props when given hour data', () => {
+
+  it('Sould receive the correct number of props when given hour data', () => {
     const wrapper = mount(<Card weather={hourCardData[0]} />);
     expect(Object.keys(wrapper.props().weather).length).toEqual(8);
   })
