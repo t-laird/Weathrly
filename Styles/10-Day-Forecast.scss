@@ -8,6 +8,11 @@ hr {
 }
 
 .TenDay {
+  background: #e5e5e5;
+  background: -moz-linear-gradient(top,  #e5eace 0%, #ffffff 100%);
+  background: -webkit-linear-gradient(top,  #e5eace 0%,#ffffff 100%);
+  background: linear-gradient(to bottom,  #e5eace 0%,#ffffff 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5eace', endColorstr='#ffffff',GradientType=0 );
   height: 470px;
   margin: 0px 40px 40px 40px; 
   padding: 10px;
