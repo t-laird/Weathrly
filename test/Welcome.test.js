@@ -7,7 +7,7 @@ describe('WELCOME PAGE', () => {
   it('should render the welcome page', () => {
     const component = shallow(<Welcome />);
     const greeting = component.find('.Welcome');
-    expect(greeting.text()).toEqual('XShow Me The WeatherWelcome to Weathrly!');
+    expect(greeting.text()).toEqual('<Search />Welcome to Weathrly! ');
   });
 
   it('should render search bar', () => {
