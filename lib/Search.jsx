@@ -1,8 +1,8 @@
 import '../Styles/Search.scss';
 import React, { Component } from 'react';
-import CityNames from '../CityNames';
 import Trie from '@t6r6l5/CompleteMe';
-// const Trie = require('@t6r6l5/CompleteMe');
+import CityNames from '../CityNames';
+import PropTypes from 'prop-types';
 
 class Search extends Component {
   constructor() {
@@ -24,22 +24,30 @@ class Search extends Component {
     } else {
       this.trie.suggestions = [];
     }
-    console.log(this.trie.suggestions);
   }
 
   setLocation() {
-    let foundCity = CityNames.data.find( city => {
-      return city === this.state.value;
-    });
+    let foundCity = this.state.value;
 
-    if (!foundCity) {
-      foundCity = CityNames.data.find( city => {
-        return (city.toLowerCase()).includes(this.state.value.toLowerCase());
-      });
-    }
-    if (foundCity) {
+    if (foundCity.length === 5 && isNaN(parseInt(foundCity))) {
       this.props.updateFunction(foundCity);
+    } else {
+      foundCity = CityNames.data.find( city => {
+        return city === this.state.value;
+      });
+      if (!foundCity) {
+        foundCity = CityNames.data.find( city => {
+          //eslint-disable-next-line max-len
+          return (city.toLowerCase()).includes(this.state.value.toLowerCase());
+        });
+      }
+      if (foundCity) {
+        this.props.updateFunction(foundCity);
+      }
     }
+    
+
+
     this.setState({value: ''});
     this.trie.suggestions = [];
   }
@@ -50,13 +58,14 @@ class Search extends Component {
   }
 
   selectLI(e) {
+    console.log(e.key);
     if (e.key === 'ArrowDown') {
-        if (this.trie.suggestions[this.state.focus]) {
-          this.setState({
-            value: this.trie.suggestions[this.state.focus],
-            focus: (Math.min(this.state.focus + 1, 5))
-          })
-        }
+      if (this.trie.suggestions[this.state.focus]) {
+        this.setState({
+          value: this.trie.suggestions[this.state.focus],
+          focus: (Math.min(this.state.focus + 1, 5))
+        });
+      }
     } else if (e.key === 'ArrowUp') {
       if (this.trie.suggestions[this.state.focus]) {
         this.setState({
@@ -65,29 +74,43 @@ class Search extends Component {
         });
       }
     } else if (e.key === "Enter") {
-      console.log('submitting');
       this.setLocation();
     }
-    console.log(this.state);
   }
 
   render() {
     return (
       <div className="Search">
         <div className="inputs">
-          <input type="text" value={this.state.value} onChange={this.updateVal} placeholder="enter your location" onKeyDown={this.selectLI}/>
-          <button onSelect={this.setLocation} onClick={this.setLocation}>Get Weather</button>          
+          <input 
+            type="text" 
+            value={this.state.value} 
+            onChange={this.updateVal} 
+            placeholder="enter your location" 
+            onKeyDown={this.selectLI}
+            autoFocus />
+          <button 
+            onSelect={this.setLocation}
+            onClick={this.setLocation}> 
+            Get Weather </button>          
         </div>
         <ul>
           {this.trie.suggestions.map((suggestion, index) => {
             if (index < 6) {
-              return <li onClick={this.autoComplete} key={index}>{suggestion}</li>
+              return <li 
+                onClick={this.autoComplete} 
+                key={index}>{suggestion} 
+                </li>;
             }
           })}
         </ul>
       </div>
-    )
+    );
   }
 } 
+
+Search.propTypes = {
+  updateFunction: PropTypes.func
+};
 
 export default Search;
