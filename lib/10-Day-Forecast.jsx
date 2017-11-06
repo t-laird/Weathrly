@@ -10,6 +10,7 @@ class TenDayForecast extends Component {
   render() {
     return (
       <div className="TenDay">
+        <div className="ten-day-container-title">10 Day Forecast</div>
         <div className="card-container">
         {
           this.props.tenDay.map((day, index) => {

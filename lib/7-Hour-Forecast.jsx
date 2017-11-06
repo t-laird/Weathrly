@@ -13,6 +13,7 @@ class SevenHourForecast extends Component {
 
     return (
       <div className="SevenHour">
+        <div className="seven-hour-container-title">7 Hour Forecast</div>
         <div className="card-container">
           {
             this.props.sevenHour.map((hour, index) => {
