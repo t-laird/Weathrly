@@ -81,6 +81,15 @@ hr {
   justify-content: center;
 }
 
+.seven-hour-container-title {
+  text-align: center;
+  font-size: 35px;
+  margin: 0 0 10px 13px;
+  font-family: sans-serif;
+  font-weight: lighter;
+  color: #3a5f7e;
+}
+
 @media screen and (max-width: 1135px) {
   .SevenHour {
     .card-container {
