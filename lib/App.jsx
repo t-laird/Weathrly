@@ -18,18 +18,28 @@ class App extends Component {
   }
 
   setLocation() {
-    if (JSON.parse(localStorage.getItem('asdf'))){
+    if (JSON.parse(localStorage.getItem('asdf'))) {
       let currentLocation = JSON.parse(localStorage.getItem('asdf'));
       let cityState = currentLocation.split(', ');
-      console.log('updating location');
       
+      // eslint-disable-next-line max-len
       fetch(`http://api.wunderground.com/api/${key}/conditions/forecast10day/hourly/q/${cityState[1]}/${cityState[0]}.json`)
         .then(res => res.json())
         .then(data => {
           let apiData = data;
-          const {CurrentObject, sevenHourForecast, tenDayObject} = cleanData(apiData);
-          this.setState({ location: currentLocation, CurrentObject: CurrentObject, tenDayObject: tenDayObject, sevenHourForecast: sevenHourForecast });
-        })    
+          const {
+            CurrentObject, 
+            sevenHourForecast, 
+            tenDayObject
+          } = cleanData(apiData);
+          
+          this.setState({ 
+            location: currentLocation,
+            CurrentObject: CurrentObject,
+            tenDayObject: tenDayObject,
+            sevenHourForecast: sevenHourForecast
+          });    
+        });
     }
   }
 
@@ -56,7 +66,7 @@ class App extends Component {
           <SevenHourForecast sevenHour={this.state.sevenHourForecast} />
           <TenDayForecast tenDay={this.state.tenDayObject} />
         </div>
-      )    
+      );
     } else if (!JSON.parse(localStorage.getItem('asdf'))) {
       return (
         <Welcome updateFunction={this.updateLocation} />

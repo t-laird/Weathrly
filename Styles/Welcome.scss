@@ -1,6 +1,4 @@
 $main-color: #4D7EA8;
-@import url('https://fonts.googleapis.com/css?family=Saira+Semi+Condensed');
-@import url('https://fonts.googleapis.com/css?family=Rubik');
 @import url('https://fonts.googleapis.com/css?family=Cinzel');
 
 
@@ -9,7 +7,7 @@ $main-color: #4D7EA8;
   position: absolute;
   width: 75%;
   height: 40%;
-  left: 20%;
+  left: 12.5%;
   top: 30%;
   background-color: transparentize($main-color, .02);
   border-radius: 10px;
@@ -21,41 +19,48 @@ $main-color: #4D7EA8;
   transition: 800ms;
   &:hover {
     box-shadow: 0px 10px 10px 0px darken($main-color, 30%);
-
-  }
-
-  button.exit {
-    background-color: red;
-    position: absolute;
-    top: 0;
-    display: none;
-    cursor: pointer;
-    font-size: 20px;
-    font-weight: lighter;
-    right: 0px;
-    height: 25px;
-    width:25px;
-    border: none;
-    border-top-right-radius: 5px;
-    text-align: center;
-    vertical-align: middle;
-    padding: 0;
-    box-shadow: 0px 0px 3px 3px white;
-    &:hover {
-      background-color: darken(red, 20%);
-      box-shadow: inset 0px 0px 1px 1px black;
-    }
   }
   
   h3 {
     font-size: 100px;
     margin: 0px;
     color: white;
-    // font-family: 'Saira Semi Condensed', sans-serif;    
-    // font-family: 'Rubik', sans-serif;    
-    // font-family: Papyrus;
     font-family: 'Cinzel', serif;    
     text-align: center;
   }
 
+}
+
+@media screen and (max-width: 900px){
+  .Welcome {
+    h3 {
+      font-size: 80px;
+    }
+  } 
+}
+@media screen and (max-width: 750px){
+  .Welcome {
+    width: 90%;
+    height: 30%;
+    top: 10%;
+    left: 5%;
+    h3 {
+      font-size: 60px;
+    }
+  } 
+}
+
+@media screen and (max-width: 465px){
+  .Welcome {
+    h3 {
+      font-size: 45px;;
+    }
+  } 
+}
+@media screen and (max-width: 370px){
+  .Welcome {
+    h3 {
+      font-size: 35px;
+    }
+  } 
 }
