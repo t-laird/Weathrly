@@ -19,27 +19,19 @@ global.localStorage = {
   }
 };
 
-global.fetch = function () {
-
-};
-
-
-describe('App', () => {
-  beforeEach( () => {
-    global.fetch = jest.fn().mockImplementation(() => {
-      var p = new Promise((resolve, reject) => {
-        resolve({
-          ok: true, 
-          Id: '123', 
-          json: function() { 
-            return {data: apiData};
-          }
-        });
-      });
-      
-      return p;
+global.fetch = jest.fn().mockImplementation(() => {
+  var fetch = new Promise((resolve, reject) => {
+    resolve({
+      json: function() { 
+        return {data: apiData};
+      }
     });
   });
+  
+  return fetch;
+});
+
+describe('App', () => {
   it('should exist', () => {
     const wrapper = shallow(<App />)
     expect(wrapper).toBeDefined()

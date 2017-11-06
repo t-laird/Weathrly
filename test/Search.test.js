@@ -8,6 +8,8 @@ describe('Search', () => {
     expect(wrapper).toBeDefined();
   });
 
-  it('')
+  it('asdfasdf', () => {
+
+  });
 
 });
