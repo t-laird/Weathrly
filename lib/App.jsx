@@ -18,8 +18,8 @@ class App extends Component {
   }
 
   setLocation() {
-    if (JSON.parse(localStorage.getItem('asdf'))) {
-      let currentLocation = JSON.parse(localStorage.getItem('asdf'));
+    if (JSON.parse(localStorage.getItem('b49ac13dx0laa1'))) {
+      let currentLocation = JSON.parse(localStorage.getItem('b49ac13dx0laa1'));
       let cityState = currentLocation.split(', ');
       
       // eslint-disable-next-line max-len
@@ -53,7 +53,7 @@ class App extends Component {
     this.setState({
       location: newLocation
     });
-    localStorage.setItem('asdf', JSON.stringify(newLocation));
+    localStorage.setItem('b49ac13dx0laa1', JSON.stringify(newLocation));
     this.setLocation();
   }
 
@@ -67,7 +67,7 @@ class App extends Component {
           <TenDayForecast tenDay={this.state.tenDayObject} />
         </div>
       );
-    } else if (!JSON.parse(localStorage.getItem('asdf'))) {
+    } else if (!JSON.parse(localStorage.getItem('b49ac13dx0laa1'))) {
       return (
         <Welcome updateFunction={this.updateLocation} />
       );
