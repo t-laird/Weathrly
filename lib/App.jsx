@@ -58,7 +58,9 @@ class App extends Component {
   }
 
   render() {
-    if (this.state.CurrentObject !== undefined) {
+    if (this.state.CurrentObject !== undefined 
+    && this.state.sevenHourForecast !== undefined 
+    && this.state.tenDayObject !== undefined) {
       return (
         <div className="App">
           <Search updateFunction={this.updateLocation} />
