@@ -1,31 +1,27 @@
-# React Starter Kit
+# Weathrly - Turing Mod 2 Project
+## Thomas Laird & Matt Arvidson
 
-To install the dependencies:
+### Weathrly was built using React and with information from the Weather Underground API. It also makes use of the autocomplete project found [here](https://github.com/t6r6l5/completeme). The project was completed over the course of 8 days. 
 
-```
-npm install
-```
+## Final Layout
+![Final Layout](./readme-assets/Final-Layout.png?raw=true)
+## Mobile Layout
+![Mobile Layout](./readme-assets/Mobile-Layout.png?raw=true)
 
-To fire up a development server:
+### Project Wire Frames
 
-```
-npm start
-```
+#### Current Weather - Initial Mockup
+![Current Weather - Initial Mockup](./readme-assets/CurrentWeather-1.png?raw=true)
 
-Once the server is running, you can visit:
+#### Card - Initial Mockup
+![Card - Initial Mockup](./readme-assets/Card-1.png?raw=true)
 
-* `http://localhost:8080/webpack-dev-server/` to run your application.
-* `http://localhost:8080/webpack-dev-server/test.html` to run your test suite in the browser.
+#### Current Weather - Second Iteration
+<img src="./readme-assets/CurrentWeather-2.JPG" width="500px" />
 
-To build the static files:
+#### 7hr and 10 Day
+<img src="./readme-assets/7hr-10day.JPG" width="500px" />
 
-```js
-npm run build
-```
+#### Card - Second Iteration
+<img src="./readme-assets/Card-2.JPG" width="500px" />
 
-
-To run tests in Node:
-
-```js
-npm test
-```
