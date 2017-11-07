@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 class Search extends Component {
   constructor() {
     super();
-    this.state = {value: '', focus: 0};
+    this.state = {value: '', focus: 0, placeholder: 'enter your location'};
 
     this.updateVal = this.updateVal.bind(this);
     this.setLocation = this.setLocation.bind(this);
@@ -29,7 +29,7 @@ class Search extends Component {
   setLocation() {
     let foundCity = this.state.value;
 
-    if (foundCity.length === 5 && isNaN(parseInt(foundCity))) {
+    if (foundCity.length === 5 && !isNaN(parseInt(foundCity))) {
       this.props.updateFunction(foundCity);
     } else {
       foundCity = CityNames.data.find( city => {
@@ -37,17 +37,18 @@ class Search extends Component {
       });
       if (!foundCity) {
         foundCity = CityNames.data.find( city => {
-          //eslint-disable-next-line max-len
-          return (city.toLowerCase()).includes(this.state.value.toLowerCase());
+          return (city.toLowerCase())
+            .includes(this.state.value.toLowerCase());
         });
       }
       if (foundCity) {
         this.props.updateFunction(foundCity);
+        this.setState({placeholder: 'enter your location'});
+      } else {
+        this.setState({placeholder: 'location not found'});
       }
     }
     
-
-
     this.setState({value: ''});
     this.trie.suggestions = [];
   }
@@ -58,7 +59,6 @@ class Search extends Component {
   }
 
   selectLI(e) {
-    console.log(e.key);
     if (e.key === 'ArrowDown') {
       if (this.trie.suggestions[this.state.focus]) {
         this.setState({
@@ -86,9 +86,14 @@ class Search extends Component {
             type="text" 
             value={this.state.value} 
             onChange={this.updateVal} 
-            placeholder="enter your location" 
+            placeholder={this.state.placeholder}
             onKeyDown={this.selectLI}
-            autoFocus />
+            className= {
+              this.state.placeholder === "location not found" 
+              ? 'not-found' :  ''
+            }
+            autoFocus
+          />
           <button 
             onSelect={this.setLocation}
             onClick={this.setLocation}> 

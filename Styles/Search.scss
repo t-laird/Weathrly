@@ -37,6 +37,12 @@ $main-color: #4D7EA8;
     }
   }
 
+  input.not-found{
+    &::placeholder {
+      color: red;
+    }
+  }
+
   ul {
     width: 100%;
     padding: 0;

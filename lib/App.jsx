@@ -33,11 +33,11 @@ class App extends Component {
             tenDayObject
           } = cleanData(apiData);
           
-          this.setState({ 
-            location: currentLocation,
-            CurrentObject: CurrentObject,
-            tenDayObject: tenDayObject,
-            sevenHourForecast: sevenHourForecast
+          this.setState({
+            currentLocation,
+            CurrentObject,
+            tenDayObject,
+            sevenHourForecast
           });    
         });
     }

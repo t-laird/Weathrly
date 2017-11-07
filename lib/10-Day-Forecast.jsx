@@ -1,30 +1,25 @@
 import '../Styles/10-Day-Forecast.scss';
-import React, { Component } from 'react';
+import React from 'react';
 import Card from './Card';
 import PropTypes from 'prop-types';
 
-class TenDayForecast extends Component {
-  constructor() {
-    super();
-  }
-
-  render() {
-    return (
-      <div className="TenDay">
-        <div className="ten-day-container-title">10 Day Forecast</div>
-        <div className="card-container">
+function TenDayForecast (props) {
+  return (
+    <div className="TenDay">
+      <div className="ten-day-container-title">10 Day Forecast</div>
+      <div className="card-container">
         {
-          this.props.tenDay.map((day, index) => {
+          props.tenDay.map((day, index) => {
             return (
               <Card weather={day} key={index} />
             );
           })
         }
-        </div>
       </div>
-    );
-  }
+    </div>
+  );
 }
+
 
 TenDayForecast.propTypes = {
   tenDay: PropTypes.array,
