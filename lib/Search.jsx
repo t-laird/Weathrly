@@ -88,6 +88,7 @@ class Search extends Component {
             onChange={this.updateVal} 
             placeholder={this.state.placeholder}
             onKeyDown={this.selectLI}
+            aria-label={'search input'}
             className= {
               this.state.placeholder === "location not found" 
               ? 'not-found' :  ''
