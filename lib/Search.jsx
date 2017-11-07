@@ -18,7 +18,7 @@ class Search extends Component {
   }
 
   updateVal(e) {
-    this.setState({value: e.target.value, focus: 0});
+    this.setState({value: e.target.value, focus: null});
     if (e.target.value.length) {
       this.trie.suggest(e.target.value);
     } else {
@@ -59,18 +59,28 @@ class Search extends Component {
   }
 
   selectLI(e) {
-    if (e.key === 'ArrowDown') {
-      if (this.trie.suggestions[this.state.focus]) {
+    if (e.key === 'ArrowDown' && 
+    this.trie.suggestions.slice(0, 6)[this.state.focus + 1]) {
+      if (this.state.focus === null) {
         this.setState({
-          value: this.trie.suggestions[this.state.focus],
-          focus: (Math.min(this.state.focus + 1, 5))
+          focus: 0, 
+          value: this.trie.suggestions[0]
+        });
+      } else {
+        this.setState({
+          focus: (Math.min(this.state.focus + 1, 5)), 
+          value: this.trie.suggestions[this.state.focus + 1]
         });
       }
-    } else if (e.key === 'ArrowUp') {
-      if (this.trie.suggestions[this.state.focus]) {
+    } else if (e.key === 'ArrowUp' && this.state.focus !== null) {
+      if (this.state.focus === 0) {
         this.setState({
-          focus: (Math.max(this.state.focus - 1, 0)),
-          value: this.trie.suggestions[(Math.max(this.state.focus - 1, 0))]
+          focus: null, 
+          value: ''});
+      } else {
+        this.setState({
+          focus: this.state.focus - 1, 
+          value: this.trie.suggestions[this.state.focus - 1]
         });
       }
     } else if (e.key === "Enter") {
@@ -102,8 +112,11 @@ class Search extends Component {
         </div>
         <ul>
           {this.trie.suggestions.map((suggestion, index) => {
+            let shouldHighlight = index === this.state.focus ? 'highlight' : '';
+
             if (index < 6) {
               return <li 
+                className={shouldHighlight}
                 onClick={this.autoComplete} 
                 key={index}>{suggestion} 
                 </li>;
