@@ -51,16 +51,16 @@ describe('App', () => {
   });
 
   it('Should set the state to the location as stored in localStorage', async () => {
-    global.localStorage.setItem('asdf', 'Denver, CO');
+    global.localStorage.setItem('a9c7bbg134o', 'Denver, CO');
     const wrapper = mount(<App />);
-    wrapper.setState({location: JSON.parse(global.localStorage.getItem('asdf'))});
+    wrapper.setState({location: JSON.parse(global.localStorage.getItem('a9c7bbg134o'))});
     expect(wrapper.state().location).toEqual('Denver, CO');
   });
 
   it('Should render the Search, CurrentWeather, SevenHourForecast and TenDayForecast components once it has been passed the data from the fetch request', () => {
-    global.localStorage.setItem('asdf', 'Denver, CO');
+    global.localStorage.setItem('a9c7bbg134o', 'Denver, CO');
     const wrapper = mount(<App />);
-    wrapper.setState({location: JSON.parse(global.localStorage.getItem('asdf')), CurrentObject: CurrentObject, tenDayObject: tenDayObject, sevenHourForecast: sevenHourForecast});
+    wrapper.setState({location: JSON.parse(global.localStorage.getItem('a9c7bbg134o')), CurrentObject: CurrentObject, tenDayObject: tenDayObject, sevenHourForecast: sevenHourForecast});
 
     expect(wrapper.find('Search').length).toEqual(1);
     expect(wrapper.find('CurrentWeather').length).toEqual(1);
@@ -69,14 +69,14 @@ describe('App', () => {
   });
 
   it('Should render only the Welcome component when it does not have any data in its state and localStorage does not have a value either.', () => {
-    global.localStorage.asdf = null;
+    global.localStorage.a9c7bbg134o = null;
     const wrapper = mount(<App />);
     expect(wrapper.find('CurrentWeather').length).toEqual(0);
     expect(wrapper.find('Welcome').length).toEqual(1);
   });
 
   it('Should not render anything if the state has not yet been passed data and localstorage is not empty', () => {
-    global.localStorage.asdf = 'Denver, CO';
+    global.localStorage.a9c7bbg134o = 'Denver, CO';
     const wrapper = mount(<App />);
 
     expect(wrapper.find('CurrentWeather').length).toEqual(0);

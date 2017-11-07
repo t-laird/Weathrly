@@ -18,8 +18,8 @@ class App extends Component {
   }
 
   setLocation() {
-    if (JSON.parse(localStorage.getItem('asdf'))){
-      let currentLocation = JSON.parse(localStorage.getItem('asdf'));
+    if (JSON.parse(localStorage.getItem('a9c7bbg134o'))){
+      let currentLocation = JSON.parse(localStorage.getItem('a9c7bbg134o'));
       let cityState = currentLocation.split(', ');
       console.log('updating location');
       
@@ -43,7 +43,7 @@ class App extends Component {
     this.setState({
       location: newLocation
     });
-    localStorage.setItem('asdf', JSON.stringify(newLocation));
+    localStorage.setItem('a9c7bbg134o', JSON.stringify(newLocation));
     this.setLocation();
   }
 
@@ -57,7 +57,7 @@ class App extends Component {
           <TenDayForecast tenDay={this.state.tenDayObject} />
         </div>
       )    
-    } else if (!JSON.parse(localStorage.getItem('asdf'))) {
+    } else if (!JSON.parse(localStorage.getItem('a9c7bbg134o'))) {
       return (
         <Welcome updateFunction={this.updateLocation} />
       );
