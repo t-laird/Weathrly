@@ -31,6 +31,7 @@ class Search extends Component {
 
     if (foundCity.length === 5 && !isNaN(parseInt(foundCity))) {
       this.props.updateFunction(foundCity);
+      this.setState({placeholder: 'enter your location'});
     } else {
       foundCity = CityNames.data.find( city => {
         return city === this.state.value;
