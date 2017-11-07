@@ -25,10 +25,10 @@ describe('Search', () => {
 
   it('Should update state upon input', ()=> {
     const wrapper = mount(<Search />);
-    const event = {target: {value: "asdfjkl"}};
+    const event = {target: {value: "b49ac13dx0laa1jkl"}};
     
     wrapper.find('input').simulate('change', event);
-    expect(wrapper.state('value')).toEqual('asdfjkl');
+    expect(wrapper.state('value')).toEqual('b49ac13dx0laa1jkl');
   });
 
   it('Should show a list of suggestions upon input', ()=> {
@@ -69,7 +69,7 @@ describe('Search', () => {
   it('Should place an error message in the input field if an an input is not found', ()=> {
     let mockUpdate = function () {}
     const wrapper = mount(<Search updateFunction={mockUpdate}/>);
-    const event = {target: {value: "asdfjkl"}};
+    const event = {target: {value: "b49ac13dx0laa1jkl"}};
     wrapper.find('input').simulate('change', event);
     wrapper.find('button').simulate('click');
 
