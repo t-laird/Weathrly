@@ -10,6 +10,9 @@
 
 ### Project Wire Frames
 
+#### App - Initial MOckup
+![App - Initial Mockup](./readme-assets/App.png?raw=true)
+
 #### Current Weather - Initial Mockup
 ![Current Weather - Initial Mockup](./readme-assets/CurrentWeather-1.png?raw=true)
 
