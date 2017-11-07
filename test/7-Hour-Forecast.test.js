@@ -6,7 +6,6 @@ import apiData from '../staticAPIdata';
 
 let testData = cleanData(apiData);
 
-
 describe('7 Hour' , () => {
   it ('should exist', () => {
     const wrapper = shallow(<SevenHourForecast sevenHour={testData.sevenHourForecast} />)
@@ -18,7 +17,7 @@ describe('7 Hour' , () => {
     expect(wrapper.find('.Card').length).toEqual(7);
   });
 
-  it ('Should receive expected number of props', () => {
+  it ('Should receive expected number of props for a single hour', () => {
     const wrapper = mount(<SevenHourForecast sevenHour={testData.sevenHourForecast} />);
     expect(Object.keys(wrapper.props().sevenHour[0]).length).toEqual(8);
   });
