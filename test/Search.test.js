@@ -62,19 +62,21 @@ describe('Search', () => {
     expect(wrapper.state('focus')).toEqual(0);
     wrapper.find('input').simulate('change', event);
     wrapper.find('input').simulate('keyDown', event);
+    wrapper.find('input').simulate('keyDown', event);
     expect(wrapper.state('focus')).toEqual(1);
-    expect(wrapper.state('value')).toEqual('San Angelo, TX');    
+    expect(wrapper.state('value')).toEqual('San Rafael, CA');    
   });
 
   it('Should place an error message in the input field if an an input is not found', ()=> {
     let mockUpdate = function () {}
     const wrapper = mount(<Search updateFunction={mockUpdate}/>);
     const event = {target: {value: "b49ac13dx0laa1jkl"}};
+    expect(wrapper.state('placeholder')).toEqual('enter your location');
     wrapper.find('input').simulate('change', event);
     wrapper.find('button').simulate('click');
 
     expect(wrapper.state('value')).toEqual('');
-    expect(wrapper.state('focus')).toEqual(0);
+    expect(wrapper.state('focus')).toEqual(null);
     expect(wrapper.state('placeholder')).toEqual('location not found');    
   });
 });
