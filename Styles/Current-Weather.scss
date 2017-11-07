@@ -61,13 +61,13 @@
   .divider {
     width: 20px;
     height: 150px;
-    border: 1px solid #e5eace;
+    border: 1px solid darken(#e5eace, 5%);
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
     border-top-right-radius: 15px;
     margin: 0px 40px;
-    background-color: #e5eace;
+    background-color: darken(#e5eace, 5%);
   }
 
   .rightHalf {
