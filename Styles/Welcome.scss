@@ -4,11 +4,12 @@ $main-color: #4D7EA8;
 
 
 .Welcome {
-  position: absolute;
-  width: 75%;
-  height: 40%;
-  left: 12.5%;
-  top: 30%;
+  // position: absolute;
+  width: 900px;
+  height: 350px;
+  margin: 200px auto;
+  // left: 12.5%;
+  // top: 22.5%;
   background-color: transparentize($main-color, .02);
   border-radius: 10px;
   display: flex;
@@ -33,6 +34,8 @@ $main-color: #4D7EA8;
 
 @media screen and (max-width: 900px){
   .Welcome {
+    width: 600px;
+    height: 300px;
     h3 {
       font-size: 80px;
     }
@@ -42,8 +45,7 @@ $main-color: #4D7EA8;
   .Welcome {
     width: 90%;
     height: 30%;
-    top: 10%;
-    left: 5%;
+    margin-top: 100px;
     h3 {
       font-size: 60px;
     }
@@ -53,7 +55,7 @@ $main-color: #4D7EA8;
 @media screen and (max-width: 465px){
   .Welcome {
     h3 {
-      font-size: 45px;;
+      font-size: 45px;
     }
   } 
 }
