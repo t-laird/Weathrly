@@ -31132,7 +31132,7 @@
 	        var cityState = currentLocation.split(', ');
 	
 	        // eslint-disable-next-line max-len
-	        fetch('http://api.wunderground.com/api/' + _apiKey2.default + '/conditions/forecast10day/hourly/q/' + cityState[1] + '/' + cityState[0] + '.json').then(function (res) {
+	        fetch('https://api.wunderground.com/api/' + _apiKey2.default + '/conditions/forecast10day/hourly/q/' + cityState[1] + '/' + cityState[0] + '.json').then(function (res) {
 	          return res.json();
 	        }).then(function (data) {
 	          var apiData = data;
