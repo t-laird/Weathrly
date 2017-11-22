@@ -23,7 +23,7 @@ class App extends Component {
       let cityState = currentLocation.split(', ');
       
       // eslint-disable-next-line max-len
-      fetch(`http://api.wunderground.com/api/${key}/conditions/forecast10day/hourly/q/${cityState[1]}/${cityState[0]}.json`)
+      fetch(`https://api.wunderground.com/api/${key}/conditions/forecast10day/hourly/q/${cityState[1]}/${cityState[0]}.json`)
         .then(res => res.json())
         .then(data => {
           let apiData = data;
